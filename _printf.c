@@ -1,4 +1,6 @@
+#include <stdarg.h>
 #include <stdio.h>
+#include "main.h"
 /**
  * _printf -function that produces output according to a format.
  * @format: The number of paramters
@@ -23,19 +25,19 @@ switch (*format++)
 {
 case 'c':
 arg_c = va_arg(args, int);
-putchar(arg_c);
+_putchar(arg_c);
 count++;
 break;
 case 's':
 arg_s = va_arg(args, char *);
 while (*arg_s != '\0')
 {
-putchar(*arg_s++);
+_putchar(*arg_s++);
 count++;
 }
 break;
 case '%':
-putchar('%');
+_putchar('%');
 count++;
 break;
 default:
@@ -44,7 +46,7 @@ break;
 }
 else
 {
-putchar(conversion_specifiers);
+_putchar(conversion_specifiers);
 count++;
 }
 }
