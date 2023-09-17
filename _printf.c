@@ -16,6 +16,9 @@ char arg_c;
 int count = 0;
 va_list args;
 char conversion_specifiers;
+
+if (format == NULL)
+return (-1);
 va_start(args, format);
 while ((conversion_specifiers = *format++) != '\0')
 {
