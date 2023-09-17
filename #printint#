@@ -1,0 +1,50 @@
+
+if (conversion_specifiers == '%')
+{
+switch (*format++)
+{
+
+case 'i':
+arg_i = va_arg(args, int);
+print_number(arg_i);
+count++;
+break;
+default:
+break;
+}
+}
+else
+{
+putchar(conversion_specifiers);
+count++;
+}
+}
+va_end(args);
+return (count);
+}
+
+/**
+ * print_number - prints an integer
+ * @n: integer to be printed
+ */
+
+void print_number(int n)
+{
+char buffer[20];
+int i = 0;
+if (n < 0)
+{
+putchar('-');
+n = -n;
+}
+do
+{
+buffer[i++] = (n % 10) + '0';
+n /= 10;
+}
+while (n > 0);
+while (i > 0)
+{
+putchar(buffer[--i]);
+}
+}
