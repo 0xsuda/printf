@@ -1,5 +1,6 @@
 #include <stdarg.h>
 #include <stdio.h>
+#include <limits.h>
 #include "main.h"
 /**
  * _printf -function that produces output according to a format.
@@ -9,47 +10,60 @@
  *
  * Return: int
  */
+typedef struct {
+char specifier;
+void (*handler)(va_list);
+} conversion_handler;
+
+
+void handle_char(va_list args) {
+char c = va_arg(args, int);
+_putchar(c);
+}
+void handle_string(va_list args) {
+char *s = va_arg(args, char *);
+while (*s != '\0') {
+_putchar(*s++);
+}
+}
+
+ void handle_integer(va_list args) {
+int n = va_arg(args, int);
+print_number(n);
+}
+
+void handle_decimal(va_list args) {
+int n = va_arg(args, int);
+print_number(n);
+}
+
+conversion_handler handlers[] = {
+{'c', handle_char},
+{'s', handle_string},
+{'i', handle_integer},
+{'d', handle_decimal},
+};
 int _printf(const char *format, ...)
 {
-char *arg_s;
-char arg_c;
-int count = 0;
+int  count = 0;
 va_list args;
-char conversion_specifiers;
-
+char conversion_specifier;
+long unsigned int i ;
 if (format == NULL)
 return (-1);
 va_start(args, format);
-while ((conversion_specifiers = *format++) != '\0')
-{
-if (conversion_specifiers == '%')
-{
-switch (*format++)
-{
-case 'c':
-arg_c = va_arg(args, int);
-_putchar(arg_c);
+while ((conversion_specifier = *format++) != '\0') {
+if (conversion_specifier == '%') {
+conversion_specifier = *format++;
+ for (i = 0; i < sizeof(handlers)/sizeof(conversion_handler); i++) {
+if (handlers[i].specifier == conversion_specifier) {
+handlers[i].handler(args);
 count++;
-break;
-case 's':
-arg_s = va_arg(args, char *);
-while (*arg_s != '\0')
-{
-_putchar(*arg_s++);
-count++;
-}
-break;
-case '%':
-_putchar('%');
-count++;
-break;
-default:
 break;
 }
 }
-else
-{
-_putchar(conversion_specifiers);
+} else {
+_putchar(conversion_specifier);
 count++;
 }
 }
