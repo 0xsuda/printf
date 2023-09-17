@@ -37,7 +37,6 @@ while (*arg_s != '\0')
 if (!arg_s)
 {
 printf("(nil)");
-break;
 }
 while (*arg_s != '\0')
 {
