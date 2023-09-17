@@ -34,11 +34,6 @@ break;
 case 's':
 arg_s = va_arg(args, char *);
 while (*arg_s != '\0')
-if (!arg_s)
-{
-printf("(nil)");
-}
-while (*arg_s != '\0')
 {
 _putchar(*arg_s++);
 count++;
