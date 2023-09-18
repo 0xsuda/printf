@@ -29,21 +29,9 @@ while (*s != '\0') {
 _putchar(*s++);
 }
 }
- void handle_integer(va_list args) {
-int n = va_arg(args, int);
-print_number(n);
-}
-
-void handle_decimal(va_list args) {
-int n = va_arg(args, int);
-print_number(n);
-}
-
 conversion_handler handlers[] = {
 {'c', handle_char},
 {'s', handle_string},
-{'i', handle_integer},
-{'d', handle_decimal},
 {'%', handle_perc},
 };
 int _printf(const char *format, ...)
