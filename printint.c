@@ -1,5 +1,5 @@
 #include <stdio.h>
-
+#include "main.h"
 /**
  * print_number - prints an integer
  * @n: integer to be printed
@@ -11,7 +11,7 @@ char buffer[20];
 int i = 0;
 if (n < 0)
 {
-putchar('-');
+_putchar('-');
 n = -n;
 }
 do
@@ -22,6 +22,6 @@ n /= 10;
 while (n > 0);
 while (i > 0)
 {
-putchar(buffer[--i]);
+_putchar(buffer[--i]);
 }
 }

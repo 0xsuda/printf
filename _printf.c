@@ -15,10 +15,13 @@ char specifier;
 void (*handler)(va_list);
 } conversion_handler;
 
-
 void handle_char(va_list args) {
 char c = va_arg(args, int);
 _putchar(c);
+}
+void handle_perc(va_list args) {
+    (void)args;
+    _putchar('%');
 }
 void handle_string(va_list args) {
 char *s = va_arg(args, char *);
@@ -26,7 +29,6 @@ while (*s != '\0') {
 _putchar(*s++);
 }
 }
-
  void handle_integer(va_list args) {
 int n = va_arg(args, int);
 print_number(n);
@@ -42,6 +44,7 @@ conversion_handler handlers[] = {
 {'s', handle_string},
 {'i', handle_integer},
 {'d', handle_decimal},
+{'%', handle_perc},
 };
 int _printf(const char *format, ...)
 {

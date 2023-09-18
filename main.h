@@ -7,6 +7,7 @@ int _printf(const char *format, ...);
 void print_number(int n);
 void handle_char(va_list args);
 void handle_string(va_list args);
+void handle_perc(va_list args);
 void handle_integer(va_list args);
 void handle_decimal(va_list args);
 #endif
