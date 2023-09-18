@@ -5,7 +5,7 @@
  * @n: integer to be printed
  */
 void print_number(int n) {
-    char buffer[20];
+    char buffer[1024];
     int i = 0;
     if (n < 0) {
         _putchar('-');
