@@ -9,25 +9,66 @@ int _printf(const char *format, ...)
 {
 int count = 0;
 va_list args;
-if (!format)
-return -1;
+char conversion_specifiers;
+if (format == NULL)
+return (-1);
 va_start(args, format);
-while (*format)
+while ((conversion_specifiers = *format++) != '\0')
 {
-if (*format == '%')
+if (conversion_specifiers == '%')
 {
-format++;
-if (*format == 'c')
-count += _putchar(va_arg(args, int));
-else if (*format == 's')
-count += _puts(va_arg(args, char *));
-else if (*format == '%')
-count += _putchar('%');
+switch (*format++)
+{
+case 'c':
+{
+char arg_c = va_arg(args, int);
+_putchar(arg_c);
+count++;
+break;
+}
+case 's': {
+char *arg_s = va_arg(args, char *);
+while (*arg_s != '\0')
+{
+_putchar(*arg_s++);
+count++;
+}
+break;
+}
+case '%': {
+_putchar('%');
+count++;
+break;
+}
+case 'd':
+{
+int arg_d = va_arg(args, int);
+print_number(arg_d);
+count++;
+break;
+}
+case 'i': {
+int arg_i = va_arg(args, int);
+print_number(arg_i);
+count++;
+break;
+}
+case 'f': {
+double arg_f = va_arg(args, double);
+printf("%f", arg_f);
+count++;
+break;
+}
+default:
+break;
+}
 }
 else
-count += _putchar(*format);
-format++;
+{
+_putchar(conversion_specifiers);
+count++;
+}
 }
 va_end(args);
-return count;
+return (count);
 }
