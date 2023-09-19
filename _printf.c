@@ -1,3 +1,8 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdarg.h>
+#include <limits.h>
+#include <unistd.h>
 #include "main.h"
 /**
 * _printf -function that produces output according to a format.
@@ -5,6 +10,8 @@
 * @...: A variable number of paramters
 * Return: int
 */
+
+
 int _printf(const char *format, ...)
 {
 int count = 0;
