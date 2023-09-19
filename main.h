@@ -2,6 +2,8 @@
 #define ASMA
 #include <stdarg.h>
 #include <stdio.h>
+#include <limits.h>
+#define BUFFER_SIZE 1024
 int _putchar(char c);
 int _printf(const char *format, ...);
 void print_number(int n);

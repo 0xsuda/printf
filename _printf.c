@@ -1,6 +1,3 @@
-#include <stdarg.h>
-#include <stdio.h>
-#include <limits.h>
 #include "main.h"
 /**
 * _printf -function that produces output according to a format.
@@ -40,25 +37,6 @@ break;
 }
 case '%': {
 _putchar('%');
-count++;
-break;
-}
-case 'd':
-{
-int arg_d = va_arg(args, int);
-print_number(arg_d);
-count++;
-break;
-}
-case 'i': {
-int arg_i = va_arg(args, int);
-print_number(arg_i);
-count++;
-break;
-}
-case 'f': {
-double arg_f = va_arg(args, double);
-printf("%f", arg_f);
 count++;
 break;
 }
