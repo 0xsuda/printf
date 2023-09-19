@@ -44,6 +44,12 @@ count++;
 break;
 }
 case 'd':
+{
+int arg_d = va_arg(args, int);
+print_number(arg_d);
+count++;
+break;
+}
 case 'i': {
 int arg_i = va_arg(args, int);
 print_number(arg_i);
