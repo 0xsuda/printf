@@ -8,8 +8,7 @@ int _printf(const char * const format, ...)
 {
 	convert_match m[] = {
 		{"%s", printf_string}, {"%c", printf_char},
-		{"%%", printf_37},
-		{"%i", printf_int}, {"%d", printf_dec},
+			{"%i", printf_int}, {"%d", printf_dec},
 	};
 
 	va_list args;
