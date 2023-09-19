@@ -5,6 +5,7 @@
 #include <limits.h>
 #define BUFFER_SIZE 1024
 int _putchar(char c);
+void print_binary(unsigned int n);
 int _puts(const char *str);
 int _printf(const char *format, ...);
 void print_number(int n);

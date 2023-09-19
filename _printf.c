@@ -54,6 +54,13 @@ _putchar('%');
 count++;
 break;
 }
+
+case 'b': {
+    unsigned int n = va_arg(args, unsigned int);
+    print_binary(n);
+    count += 8;
+    break;
+}
 case 'd': {
 int arg_d = va_arg(args, int);
 print_number(arg_d);

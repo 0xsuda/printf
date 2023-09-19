@@ -19,3 +19,9 @@ void print_number(int n) {
         _putchar(buffer[--i]);
     }
 }
+void print_binary(unsigned int n) {
+    if (n > 1) {
+        print_binary(n / 2);
+    }
+    putchar('0' + (n % 2));
+}
