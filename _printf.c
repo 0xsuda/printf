@@ -13,7 +13,7 @@ int (*find_print_function(const char *format))(va_list)
 unsigned int i = 0;
 print_func find_func[] = {
 {"c", print_char},
-{"s", print_string},
+{"s", print_str},
 {"i", print_int},
 {"d", print_decimal},
 {NULL, NULL}
