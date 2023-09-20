@@ -53,10 +53,10 @@ int print_int(va_list i)
 
 
 /**
-* print_dec - function that prints an decimal
-* @d: integer to print
-* Descriptions: prints digit with _putchar
-* Return: size the output text
+* print_decimal - fun to handle decimal printing
+* @d: integer value will be printed
+* Descriptions: prints _putchar
+* Return: output
 */
 int print_decimal(va_list d)
 {
