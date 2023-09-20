@@ -23,8 +23,8 @@ int print_rot13(va_list R);
   */
 typedef struct code_format
 {
-        char *specifier;
-        int (*func)(va_list);
+char *specifier;
+int (*func)(va_list);
 } print_func;
 
 #endif
