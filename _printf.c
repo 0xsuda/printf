@@ -14,7 +14,7 @@ unsigned int i = 0;
 print_func find_func[] = {
 {"c", print_char},
 {"s", print_str},
-{"i", print_int},
+{"i", print_integer},
 {"d", print_decimal},
 {NULL, NULL}
 };
@@ -67,5 +67,5 @@ else
 i++;
 }
 va_end(args);
-return (count);
+return(count);
 }
