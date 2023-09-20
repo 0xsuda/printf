@@ -14,7 +14,7 @@ unsigned int i = 0;
 print_func find_func[] = {
 {"c", print_char},
 {"s", print_string},
-{"i", print_int},
+{"i", print_integer},
 {"d", print_decimal},
 {NULL, NULL}
 };
