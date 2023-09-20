@@ -4,7 +4,7 @@
 #include <stdarg.h>
 int _putchar(char c);
 int _printf(const char *format, ...);
-int print_char(va_list c);
+int print_cha(va_list c);
 int print_str(va_list s);
 int print_integer(va_list i);
 int print_decimal(va_list d);
